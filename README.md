@@ -25,8 +25,8 @@ The To-Do List web application allows users to add, remove, and mark tasks as co
 - Remove tasks: Click on the task to remove it from the list.
 - Mark tasks as completed: Click on a task to toggle its completion status.
 
-  HTML
-
+HTML
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +37,6 @@ The To-Do List web application allows users to add, remove, and mark tasks as co
 </head>
 <body>
     <div class="container">
-
         <div class="todoapp">
             <h2>To-Do List <img src="images/icon.png"> </h2>
             <div class="row">
@@ -50,13 +49,16 @@ The To-Do List web application allows users to add, remove, and mark tasks as co
                 <li>Task 3</li> -->
             </ul>
         </div>
-
     </div>
     <script src="script.js"></script>
 </body>
 </html>
+```
 
-CSS 
+CSS
+
+```
+
 
 *{
     margin: 0;
@@ -156,12 +158,14 @@ ul li span {
 ul li span:hover{
     background: #edeef0;
 }
+```
 
 Javascript
 
+```
+
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-Container");
-
 function addTask(params) {
     if(inputBox.value === ''){
         alert("you must write something!");
@@ -170,7 +174,6 @@ function addTask(params) {
         let li = document.createElement('li');
         li.innerHTML = inputBox.value;
         listContainer.appendChild(li);
-
         let span = document.createElement("span");
         span.innerHTML = "\u00d7";
         li.appendChild(span);
@@ -178,7 +181,6 @@ function addTask(params) {
     inputBox.value = '';
     saveData();
 }
-
 listContainer.addEventListener("click", function(e){
     if(e.target.tagName === "LI"){
         e.target.classList.toggle("checked");
@@ -189,7 +191,6 @@ listContainer.addEventListener("click", function(e){
         saveData();
     }
 }, false);
-
 function saveData() {
     localStorage.setItem("data", listContainer.innerHTML);
 }
@@ -197,7 +198,7 @@ function showTask() {
     listContainer.innerHTML = localStorage.getItem("data");
 }
 showTask();
-
+```
 ## Installation
 
 1. Clone the repository or download the source code.
